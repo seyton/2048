@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		62F9BD071C04A2AE008454D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD061C04A2AE008454D9 /* AppDelegate.swift */; };
+		62F9BD091C04A2AE008454D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD081C04A2AE008454D9 /* ViewController.swift */; };
+		62F9BD0C1C04A2AE008454D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9BD0A1C04A2AE008454D9 /* Main.storyboard */; };
+		62F9BD0E1C04A2AE008454D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62F9BD0D1C04A2AE008454D9 /* Assets.xcassets */; };
+		62F9BD111C04A2AE008454D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62F9BD0F1C04A2AE008454D9 /* LaunchScreen.storyboard */; };
+		62F9BD1C1C04A2AF008454D9 /* NumberTilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD1B1C04A2AF008454D9 /* NumberTilesTests.swift */; };
+		62F9BD271C04A2AF008454D9 /* NumberTilesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD261C04A2AF008454D9 /* NumberTilesUITests.swift */; };
+		62F9BD351C04A437008454D9 /* NumberTileGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD341C04A437008454D9 /* NumberTileGameViewController.swift */; };
+		62F9BD371C04A6CA008454D9 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD361C04A6CA008454D9 /* GameModel.swift */; };
+		62F9BD3A1C04AA28008454D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD391C04AA28008454D9 /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62F9BD181C04A2AF008454D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62F9BCFB1C04A2AE008454D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62F9BD021C04A2AE008454D9;
+			remoteInfo = NumberTiles;
+		};
+		62F9BD231C04A2AF008454D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62F9BCFB1C04A2AE008454D9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 62F9BD021C04A2AE008454D9;
+			remoteInfo = NumberTiles;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		62F9BD031C04A2AE008454D9 /* NumberTiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumberTiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F9BD061C04A2AE008454D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		62F9BD081C04A2AE008454D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62F9BD0B1C04A2AE008454D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		62F9BD0D1C04A2AE008454D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62F9BD101C04A2AE008454D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		62F9BD121C04A2AE008454D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62F9BD171C04A2AF008454D9 /* NumberTilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F9BD1B1C04A2AF008454D9 /* NumberTilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTilesTests.swift; sourceTree = "<group>"; };
+		62F9BD1D1C04A2AF008454D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62F9BD221C04A2AF008454D9 /* NumberTilesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumberTilesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F9BD261C04A2AF008454D9 /* NumberTilesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTilesUITests.swift; sourceTree = "<group>"; };
+		62F9BD281C04A2AF008454D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62F9BD341C04A437008454D9 /* NumberTileGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTileGameViewController.swift; sourceTree = "<group>"; };
+		62F9BD361C04A6CA008454D9 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/GameModel.swift; sourceTree = "<group>"; };
+		62F9BD391C04AA28008454D9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Models/Constants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62F9BD001C04A2AE008454D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F9BD141C04A2AF008454D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F9BD1F1C04A2AF008454D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		62F9BCFA1C04A2AE008454D9 = {
+			isa = PBXGroup;
+			children = (
+				62F9BD051C04A2AE008454D9 /* NumberTiles */,
+				62F9BD1A1C04A2AF008454D9 /* NumberTilesTests */,
+				62F9BD251C04A2AF008454D9 /* NumberTilesUITests */,
+				62F9BD041C04A2AE008454D9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		62F9BD041C04A2AE008454D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62F9BD031C04A2AE008454D9 /* NumberTiles.app */,
+				62F9BD171C04A2AF008454D9 /* NumberTilesTests.xctest */,
+				62F9BD221C04A2AF008454D9 /* NumberTilesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62F9BD051C04A2AE008454D9 /* NumberTiles */ = {
+			isa = PBXGroup;
+			children = (
+				62F9BD061C04A2AE008454D9 /* AppDelegate.swift */,
+				62F9BD081C04A2AE008454D9 /* ViewController.swift */,
+				62F9BD0A1C04A2AE008454D9 /* Main.storyboard */,
+				62F9BD0D1C04A2AE008454D9 /* Assets.xcassets */,
+				62F9BD0F1C04A2AE008454D9 /* LaunchScreen.storyboard */,
+				62F9BD121C04A2AE008454D9 /* Info.plist */,
+				62F9BD341C04A437008454D9 /* NumberTileGameViewController.swift */,
+				62F9BD381C04A6CF008454D9 /* Models */,
+			);
+			path = NumberTiles;
+			sourceTree = "<group>";
+		};
+		62F9BD1A1C04A2AF008454D9 /* NumberTilesTests */ = {
+			isa = PBXGroup;
+			children = (
+				62F9BD1B1C04A2AF008454D9 /* NumberTilesTests.swift */,
+				62F9BD1D1C04A2AF008454D9 /* Info.plist */,
+			);
+			path = NumberTilesTests;
+			sourceTree = "<group>";
+		};
+		62F9BD251C04A2AF008454D9 /* NumberTilesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				62F9BD261C04A2AF008454D9 /* NumberTilesUITests.swift */,
+				62F9BD281C04A2AF008454D9 /* Info.plist */,
+			);
+			path = NumberTilesUITests;
+			sourceTree = "<group>";
+		};
+		62F9BD381C04A6CF008454D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62F9BD361C04A6CA008454D9 /* GameModel.swift */,
+				62F9BD391C04AA28008454D9 /* Constants.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62F9BD021C04A2AE008454D9 /* NumberTiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62F9BD2B1C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTiles" */;
+			buildPhases = (
+				62F9BCFF1C04A2AE008454D9 /* Sources */,
+				62F9BD001C04A2AE008454D9 /* Frameworks */,
+				62F9BD011C04A2AE008454D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NumberTiles;
+			productName = NumberTiles;
+			productReference = 62F9BD031C04A2AE008454D9 /* NumberTiles.app */;
+			productType = "com.apple.product-type.application";
+		};
+		62F9BD161C04A2AF008454D9 /* NumberTilesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62F9BD2E1C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTilesTests" */;
+			buildPhases = (
+				62F9BD131C04A2AF008454D9 /* Sources */,
+				62F9BD141C04A2AF008454D9 /* Frameworks */,
+				62F9BD151C04A2AF008454D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62F9BD191C04A2AF008454D9 /* PBXTargetDependency */,
+			);
+			name = NumberTilesTests;
+			productName = NumberTilesTests;
+			productReference = 62F9BD171C04A2AF008454D9 /* NumberTilesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		62F9BD211C04A2AF008454D9 /* NumberTilesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62F9BD311C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTilesUITests" */;
+			buildPhases = (
+				62F9BD1E1C04A2AF008454D9 /* Sources */,
+				62F9BD1F1C04A2AF008454D9 /* Frameworks */,
+				62F9BD201C04A2AF008454D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62F9BD241C04A2AF008454D9 /* PBXTargetDependency */,
+			);
+			name = NumberTilesUITests;
+			productName = NumberTilesUITests;
+			productReference = 62F9BD221C04A2AF008454D9 /* NumberTilesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62F9BCFB1C04A2AE008454D9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = insoc.net;
+				TargetAttributes = {
+					62F9BD021C04A2AE008454D9 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					62F9BD161C04A2AF008454D9 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 62F9BD021C04A2AE008454D9;
+					};
+					62F9BD211C04A2AF008454D9 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 62F9BD021C04A2AE008454D9;
+					};
+				};
+			};
+			buildConfigurationList = 62F9BCFE1C04A2AE008454D9 /* Build configuration list for PBXProject "NumberTiles" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62F9BCFA1C04A2AE008454D9;
+			productRefGroup = 62F9BD041C04A2AE008454D9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62F9BD021C04A2AE008454D9 /* NumberTiles */,
+				62F9BD161C04A2AF008454D9 /* NumberTilesTests */,
+				62F9BD211C04A2AF008454D9 /* NumberTilesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62F9BD011C04A2AE008454D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F9BD111C04A2AE008454D9 /* LaunchScreen.storyboard in Resources */,
+				62F9BD0E1C04A2AE008454D9 /* Assets.xcassets in Resources */,
+				62F9BD0C1C04A2AE008454D9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F9BD151C04A2AF008454D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F9BD201C04A2AF008454D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62F9BCFF1C04A2AE008454D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F9BD3A1C04AA28008454D9 /* Constants.swift in Sources */,
+				62F9BD351C04A437008454D9 /* NumberTileGameViewController.swift in Sources */,
+				62F9BD371C04A6CA008454D9 /* GameModel.swift in Sources */,
+				62F9BD091C04A2AE008454D9 /* ViewController.swift in Sources */,
+				62F9BD071C04A2AE008454D9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F9BD131C04A2AF008454D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F9BD1C1C04A2AF008454D9 /* NumberTilesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F9BD1E1C04A2AF008454D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F9BD271C04A2AF008454D9 /* NumberTilesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		62F9BD191C04A2AF008454D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62F9BD021C04A2AE008454D9 /* NumberTiles */;
+			targetProxy = 62F9BD181C04A2AF008454D9 /* PBXContainerItemProxy */;
+		};
+		62F9BD241C04A2AF008454D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 62F9BD021C04A2AE008454D9 /* NumberTiles */;
+			targetProxy = 62F9BD231C04A2AF008454D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		62F9BD0A1C04A2AE008454D9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62F9BD0B1C04A2AE008454D9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		62F9BD0F1C04A2AE008454D9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62F9BD101C04A2AE008454D9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		62F9BD291C04A2AF008454D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		62F9BD2A1C04A2AF008454D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		62F9BD2C1C04A2AF008454D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NumberTiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.insoc.NumberTiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		62F9BD2D1C04A2AF008454D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NumberTiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.insoc.NumberTiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		62F9BD2F1C04A2AF008454D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NumberTilesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.insoc.NumberTilesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberTiles.app/NumberTiles";
+			};
+			name = Debug;
+		};
+		62F9BD301C04A2AF008454D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NumberTilesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.insoc.NumberTilesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumberTiles.app/NumberTiles";
+			};
+			name = Release;
+		};
+		62F9BD321C04A2AF008454D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NumberTilesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.insoc.NumberTilesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NumberTiles;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		62F9BD331C04A2AF008454D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NumberTilesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.insoc.NumberTilesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NumberTiles;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62F9BCFE1C04A2AE008454D9 /* Build configuration list for PBXProject "NumberTiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62F9BD291C04A2AF008454D9 /* Debug */,
+				62F9BD2A1C04A2AF008454D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62F9BD2B1C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62F9BD2C1C04A2AF008454D9 /* Debug */,
+				62F9BD2D1C04A2AF008454D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		62F9BD2E1C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTilesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62F9BD2F1C04A2AF008454D9 /* Debug */,
+				62F9BD301C04A2AF008454D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		62F9BD311C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTilesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62F9BD321C04A2AF008454D9 /* Debug */,
+				62F9BD331C04A2AF008454D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 62F9BCFB1C04A2AE008454D9 /* Project object */;
+}
