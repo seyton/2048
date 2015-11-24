@@ -19,7 +19,7 @@ protocol GameModelDelegate: class {
 
 class GameModel: NSObject {
 
-    let diminsion: Int
+    let dimension: Int
     let threshold: Int
     
     var score: Int = 0 {
@@ -39,7 +39,7 @@ class GameModel: NSObject {
     
     init(dimension d: Int, threshold t: Int, delegate: GameModelDelegate) {
         
-        diminsion = d
+        dimension = d
         threshold = t
         gameQueue = [MoveCommand]()
         gameTimer = NSTimer()
@@ -72,9 +72,7 @@ class GameModel: NSObject {
     }
     
     func fireTimer(_: NSTimer) {
-        if gameQueue.count == 0 {
-            return
-        }
+        if gameQueue.count == 0 {  return }
         
         var changed = false
         
@@ -91,8 +89,109 @@ class GameModel: NSObject {
         if changed {
             gameTimer = NSTimer.scheduledTimerWithTimeInterval(queueDelay, target: self, selector: Selector("fireTimer"), userInfo: nil, repeats: false)
         }
-        
     }
+}
+
+//MARK: Game Tile Methods
+extension GameModel {
+    
+    func insertTile(position: (Int, Int), value: Int) {
+        
+        let (x, y) = position
+        
+        if case .Empty = gameBoard[x,y] {
+            
+            gameBoard[x,y] = TileObject.Tile(value)
+            delegate.insertTile(position, value: value)
+        }
+    }
+    
+    func insertRandomTileLocation(value: Int) {
+        
+        let slots = emptySlots()
+        if slots.isEmpty { return }
+        
+        let index = Int(arc4random_uniform(UInt32(slots.count-1)))
+        let (x, y) = slots[index]
+        
+        insertTile((x, y), value: value)
+    }
+    
+    func emptySlots() -> [(Int, Int)] {
+        var emptySlots = [(Int, Int)]()
+        
+        for i in 0..<dimension {
+            for j in 0..<dimension {
+                if case .Empty = gameBoard[i, j] {
+                    emptySlots += [(i, j)]
+                }
+            }
+        }
+        return emptySlots
+    }
+}
+
+//MARK: Game Logic
+extension GameModel {
+    
+    func tileBelowHasSameValue(location: (Int, Int), _ value: Int) -> Bool {
+        
+        let (x, y) = location
+        
+        guard y != dimension - 1 else { return false }
+        
+        if case let .Tile(v) = gameBoard[x, y+1] {
+            return v == value
+        }
+        
+        return false
+    }
+    
+    func tileToRightHasSameValue(location: (Int, Int), _ value: Int) -> Bool {
+        
+        let (x, y) = location
+        
+        guard x != dimension - 1 else { return false }
+        
+        if case let .Tile(v) = gameBoard[x+1, y] {
+            return v == value
+        }
+        
+        return false
+    }
+    
+    func gameWon() -> (Bool, (Int, Int)?) {
+        
+        for i in 0..<dimension {
+            for j in 0..<dimension {
+                
+                if case let .Tile(v) = gameBoard[i, j] where v >= threshold {
+                    return (true, (i, j))
+                }
+            }
+        }
+        return (false, nil)
+    }
+    
+    func gameOver() -> Bool {
+        
+        guard emptySlots().isEmpty else { return false }
+        
+        for i in 0..<dimension {
+            for j in 0..<dimension {
+                switch gameBoard[i, j] {
+                case .Empty:
+                    assert(false, "Gameboard reported itself as full, but there is still an empty tile.")
+                case let .Tile(v):
+                    if tileBelowHasSameValue((i, j), v) || tileToRightHasSameValue((i, j), v) {
+                        return false
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
 }
 
 //MARK: - Game Movements
@@ -100,8 +199,122 @@ extension GameModel {
     
     func performMove(direction: MoveDirection) -> Bool {
         
-        return true
+        let cellGenerator: (Int) -> [(Int, Int)] = { (iteration: Int) -> [(Int, Int)] in
+            
+            var cell = Array<(Int, Int)>(count: self.dimension, repeatedValue: (0,0))
+            
+            for i in 0..<self.dimension {
+                switch direction {
+                case .Up: cell[i]    = (i, iteration)
+                case .Down: cell[i]  = (self.dimension - i - 1, iteration)
+                case .Left: cell[i]  = (iteration, i)
+                case .Right: cell[i] = (iteration, self.dimension - i - 1)
+                }
+            }
+            return cell
+        }
+        
+        var atLeastOneMoreMove = false
+        
+        for i in 0..<dimension {
+            
+            let cells = cellGenerator(i)
+            
+            let tiles = cells.map() { (c: (Int, Int)) -> TileObject in
+                let (x, y) = c
+                return self.gameBoard[x, y]
+            }
+            
+            let orders = merge(tiles)
+            
+        }
     }
 }
 
-
+//MARK: - Game Utilities
+extension GameModel {
+    
+    func merge(group: [TileObject]) -> [MoveOrder] {
+        return convert(collapse(condense(tileGroup)))
+    }
+    
+    func convert(group: [ActionToken]) -> [MoveOrder] {
+        
+        var moveBuffer = [MoveOrder]()
+        
+        for (index, tile) in group.enumerate() {
+            
+            switch tile {
+            
+            case let .Move(source, value):
+                moveBuffer.append(MoveOrder.SingleMoveOrder(source: source, destination: index, value: value, wasMerged: false))
+            
+            case let .SingleCombine(source, value):
+                moveBuffer.append(MoveOrder.SingleMoveOrder(source: source, destination: index, value: value, wasMerged: true))
+                
+            case let .DoubleCombine(source1, source2, value):
+                moveBuffer.append(MoveOrder.DoubleMoveOrder(firstSource: source1, secondSource: source2, destination: index, value: value))
+                
+            default:
+                break
+            }
+        }
+        
+        return moveBuffer
+    }
+    
+    func collapse(group: [ActionToken]) -> [ActionToken] {
+        
+        var tokenBuffer = [ActionToken]()
+        var skipNext = false
+        
+        for (index, token) in group.enumerate() {
+            if skipNext {
+                skipNext = false
+                continue
+            }
+            
+            switch token {
+                
+            case .SingleCombine:
+                assert(false, "Sorry you can not have single combine token for input.")
+            
+            case .DoubleCombine:
+                assert(false, "Sorry you can not have double combine token for input.")
+                
+            case let .NoAction(source, value) where (index < group.count - 1
+                && value == group[index+1].getValue()
+                && GameModel.inActiveTileStillInActive(index, outputLength: tokenBuffer.count, originalPosition: source)):
+                
+                let next = group[index + 1]
+                let newValue = value + group[index + 1].getValue()
+                tokenBuffer.append(ActionToken.SingleCombine(source: next.getSource(), value: newValue))
+                
+            case let t where (index < group.count-1 && t.getValue() == group[index + 1].getValue()):
+                let next = group[index + 1]
+                let nv = t.getValue() + group[index + 1].getValue()
+                skipNext = true
+                tokenBuffer.append(ActionToken.DoubleCombine(source: t.getSource(), second: next.getSource(), value: nv))
+            case let .NoAction(s, v) where !GameModel.quiescentTileStillQuiescent(idx, outputLength: tokenBuffer.count, originalPosition: s):
+                // A tile that didn't move before has moved (first cond.), or there was a previous merge (second cond.)
+                tokenBuffer.append(ActionToken.Move(source: s, value: v))
+            case let .NoAction(s, v):
+                // A tile that didn't move before still hasn't moved
+                tokenBuffer.append(ActionToken.NoAction(source: s, value: v))
+            case let .Move(s, v):
+                // Propagate a move
+                tokenBuffer.append(ActionToken.Move(source: s, value: v))
+            default:
+                // Don't do anything
+                break
+                
+            }
+            
+        }
+    }
+    
+    class func inActiveTileStillInActive(inputPosition: Int, outputLength: Int, originalPosition: Int) -> Bool {
+        // Return whether or not a 'NoAction' token still represents an unmoved tile
+        return (inputPosition == outputLength) && (originalPosition == inputPosition)
+    }
+}
