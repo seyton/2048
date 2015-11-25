@@ -12,7 +12,9 @@ class NumberTileGameViewController: UIViewController {
 
     var dimension: Int
     var threshold: Int
-
+    var board: GameBoardView?
+    var model: GameModel?
+    
     let boardWidth         = CGFloat(230)
     let narrowPadding      = CGFloat(3)
     let thickPadding       = CGFloat(6)

@@ -226,15 +226,50 @@ extension GameModel {
             }
             
             let orders = merge(tiles)
+            atLeastOneMoreMove = orders.count > 0 ? true : false
             
+            for object in orders {
+                
+                switch object {
+                    
+                case let MoveOrder.SingleMoveOrder(source , destination, value, wasMerged):
+                    let (sourceX, sourceY)       = cells[source]
+                    let (dimensionX, dimensionY) = cells[destination]
+                    
+                    if wasMerged {
+                        score += value
+                    }
+                    
+                    gameBoard[sourceX, sourceY]       = TileObject.Empty
+                    gameBoard[dimensionX, dimensionY] = TileObject.Tile(value)
+                    delegate.moveOneTile(cells[source], to: cells[destination], value: value)
+                    
+                case let MoveOrder.DoubleMoveOrder(firstSource: source1, secondSource: source2, destination: destination, value: value):
+                    
+                    let (source1X, source1Y)         = cells[source1]
+                    let (source2X, source2Y)         = cells[source2]
+                    let (destinationX, destinationY) = cells[destination]
+                    
+                    score += value
+                    
+                    gameBoard[source1X, source1Y]         = TileObject.Empty
+                    gameBoard[source2X, source2Y]         = TileObject.Empty
+                    gameBoard[destinationX, destinationY] = TileObject.Tile(value)
+                    delegate.moreTwoTiles((cells[source1], cells[source2]), to: cells[destination], value: value)
+                    
+                }
+            }
         }
+        
+        return atLeastOneMoreMove
     }
+    
 }
 
 //MARK: - Game Utilities
 extension GameModel {
     
-    func merge(group: [TileObject]) -> [MoveOrder] {
+    func merge(tileGroup: [TileObject]) -> [MoveOrder] {
         return convert(collapse(condense(tileGroup)))
     }
     
@@ -292,25 +327,49 @@ extension GameModel {
                 
             case let t where (index < group.count-1 && t.getValue() == group[index + 1].getValue()):
                 let next = group[index + 1]
-                let nv = t.getValue() + group[index + 1].getValue()
+                let newValue = t.getValue() + group[index + 1].getValue()
                 skipNext = true
-                tokenBuffer.append(ActionToken.DoubleCombine(source: t.getSource(), second: next.getSource(), value: nv))
-            case let .NoAction(s, v) where !GameModel.quiescentTileStillQuiescent(idx, outputLength: tokenBuffer.count, originalPosition: s):
-                // A tile that didn't move before has moved (first cond.), or there was a previous merge (second cond.)
-                tokenBuffer.append(ActionToken.Move(source: s, value: v))
-            case let .NoAction(s, v):
-                // A tile that didn't move before still hasn't moved
-                tokenBuffer.append(ActionToken.NoAction(source: s, value: v))
-            case let .Move(s, v):
+                tokenBuffer.append(ActionToken.DoubleCombine(firstSource: t.getSource(), secondSource: next.getSource(), value: newValue))
+                
+            case let .NoAction(source, value) where !GameModel.inActiveTileStillInActive(index, outputLength: tokenBuffer.count, originalPosition: source):
+                tokenBuffer.append(ActionToken.Move(source: source, value: value))
+                
+            case let .NoAction(source, value):
+                tokenBuffer.append(ActionToken.NoAction(source: source, value: value))
+                
+            case let .Move(source, value):
                 // Propagate a move
-                tokenBuffer.append(ActionToken.Move(source: s, value: v))
+                tokenBuffer.append(ActionToken.Move(source: source, value: value))
+                
             default:
                 // Don't do anything
                 break
-                
             }
-            
         }
+        
+        return tokenBuffer
+    }
+    
+    func condense(group: [TileObject]) -> [ActionToken] {
+        
+        var tokenBuffer = [ActionToken]()
+        
+        for (index, tile) in group.enumerate() {
+            
+            switch tile {
+                
+            case let .Tile(value) where tokenBuffer.count == index:
+                tokenBuffer.append(ActionToken.NoAction(source: index, value: value))
+                
+            case let .Tile(value):
+                tokenBuffer.append(ActionToken.Move(source: index, value: value))
+                
+            default:
+                break
+            }
+        }
+        
+        return tokenBuffer
     }
     
     class func inActiveTileStillInActive(inputPosition: Int, outputLength: Int, originalPosition: Int) -> Bool {

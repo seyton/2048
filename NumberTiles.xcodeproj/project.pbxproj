@@ -17,6 +17,9 @@
 		62F9BD351C04A437008454D9 /* NumberTileGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD341C04A437008454D9 /* NumberTileGameViewController.swift */; };
 		62F9BD371C04A6CA008454D9 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD361C04A6CA008454D9 /* GameModel.swift */; };
 		62F9BD3A1C04AA28008454D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD391C04AA28008454D9 /* Constants.swift */; };
+		62F9BD401C05DD0D008454D9 /* AppearanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD3F1C05DD0D008454D9 /* AppearanceProvider.swift */; };
+		62F9BD441C05E0E0008454D9 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD431C05E0E0008454D9 /* GameBoardView.swift */; };
+		62F9BD461C05E10A008454D9 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD451C05E10A008454D9 /* TileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		62F9BD341C04A437008454D9 /* NumberTileGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTileGameViewController.swift; sourceTree = "<group>"; };
 		62F9BD361C04A6CA008454D9 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameModel.swift; path = Models/GameModel.swift; sourceTree = "<group>"; };
 		62F9BD391C04AA28008454D9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Models/Constants.swift; sourceTree = "<group>"; };
+		62F9BD3F1C05DD0D008454D9 /* AppearanceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceProvider.swift; sourceTree = "<group>"; };
+		62F9BD431C05E0E0008454D9 /* GameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameBoardView.swift; path = Views/GameBoardView.swift; sourceTree = "<group>"; };
+		62F9BD451C05E10A008454D9 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		62F9BD051C04A2AE008454D9 /* NumberTiles */ = {
 			isa = PBXGroup;
 			children = (
+				62F9BD3B1C05DCBA008454D9 /* Views */,
 				62F9BD061C04A2AE008454D9 /* AppDelegate.swift */,
 				62F9BD081C04A2AE008454D9 /* ViewController.swift */,
 				62F9BD0A1C04A2AE008454D9 /* Main.storyboard */,
@@ -111,6 +118,7 @@
 				62F9BD121C04A2AE008454D9 /* Info.plist */,
 				62F9BD341C04A437008454D9 /* NumberTileGameViewController.swift */,
 				62F9BD381C04A6CF008454D9 /* Models */,
+				62F9BD3F1C05DD0D008454D9 /* AppearanceProvider.swift */,
 			);
 			path = NumberTiles;
 			sourceTree = "<group>";
@@ -140,6 +148,15 @@
 				62F9BD391C04AA28008454D9 /* Constants.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		62F9BD3B1C05DCBA008454D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62F9BD431C05E0E0008454D9 /* GameBoardView.swift */,
+				62F9BD451C05E10A008454D9 /* TileView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,9 +292,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				62F9BD3A1C04AA28008454D9 /* Constants.swift in Sources */,
+				62F9BD401C05DD0D008454D9 /* AppearanceProvider.swift in Sources */,
+				62F9BD461C05E10A008454D9 /* TileView.swift in Sources */,
 				62F9BD351C04A437008454D9 /* NumberTileGameViewController.swift in Sources */,
 				62F9BD371C04A6CA008454D9 /* GameModel.swift in Sources */,
 				62F9BD091C04A2AE008454D9 /* ViewController.swift in Sources */,
+				62F9BD441C05E0E0008454D9 /* GameBoardView.swift in Sources */,
 				62F9BD071C04A2AE008454D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +525,7 @@
 				62F9BD2D1C04A2AF008454D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62F9BD2E1C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTilesTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +534,7 @@
 				62F9BD301C04A2AF008454D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62F9BD311C04A2AF008454D9 /* Build configuration list for PBXNativeTarget "NumberTilesUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +543,7 @@
 				62F9BD331C04A2AF008454D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
