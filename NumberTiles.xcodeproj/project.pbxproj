@@ -20,6 +20,7 @@
 		62F9BD401C05DD0D008454D9 /* AppearanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD3F1C05DD0D008454D9 /* AppearanceProvider.swift */; };
 		62F9BD441C05E0E0008454D9 /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD431C05E0E0008454D9 /* GameBoardView.swift */; };
 		62F9BD461C05E10A008454D9 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD451C05E10A008454D9 /* TileView.swift */; };
+		62F9BD481C05E50B008454D9 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9BD471C05E50B008454D9 /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		62F9BD3F1C05DD0D008454D9 /* AppearanceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceProvider.swift; sourceTree = "<group>"; };
 		62F9BD431C05E0E0008454D9 /* GameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameBoardView.swift; path = Views/GameBoardView.swift; sourceTree = "<group>"; };
 		62F9BD451C05E10A008454D9 /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = Views/TileView.swift; sourceTree = "<group>"; };
+		62F9BD471C05E50B008454D9 /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreView.swift; path = Views/ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				62F9BD431C05E0E0008454D9 /* GameBoardView.swift */,
 				62F9BD451C05E10A008454D9 /* TileView.swift */,
+				62F9BD471C05E50B008454D9 /* ScoreView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			files = (
 				62F9BD3A1C04AA28008454D9 /* Constants.swift in Sources */,
 				62F9BD401C05DD0D008454D9 /* AppearanceProvider.swift in Sources */,
+				62F9BD481C05E50B008454D9 /* ScoreView.swift in Sources */,
 				62F9BD461C05E10A008454D9 /* TileView.swift in Sources */,
 				62F9BD351C04A437008454D9 /* NumberTileGameViewController.swift in Sources */,
 				62F9BD371C04A6CA008454D9 /* GameModel.swift in Sources */,

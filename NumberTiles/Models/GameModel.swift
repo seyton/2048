@@ -87,7 +87,7 @@ class GameModel: NSObject {
         }
         
         if changed {
-            gameTimer = NSTimer.scheduledTimerWithTimeInterval(queueDelay, target: self, selector: Selector("fireTimer"), userInfo: nil, repeats: false)
+            gameTimer = NSTimer.scheduledTimerWithTimeInterval(queueDelay, target: self, selector: Selector("fireTimer:"), userInfo: nil, repeats: false)
         }
     }
 }
